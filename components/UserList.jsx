@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 const UserList = ({users}) => {
    async function handlechange(value,id){
-    await fetch(`http://localhost:3001/api/users/${id}`,{method:"PUT",body:JSON.stringify({role:value}),headers:{"Content-Type":"application/json"}}).then(res=>res.json()).then(data=>{console.log(data)});
+    await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/${id}`,{method:"PUT",body:JSON.stringify({role:value}),headers:{"Content-Type":"application/json"}}).then(res=>res.json()).then(data=>{console.log(data)});
   }
     return ( 
         <>
@@ -60,7 +60,7 @@ swal({
 })
 .then((willDelete) => {
   if (willDelete) {
-  fetch(`http://localhost:3001/api/users/${user._id}`,{method:"DELETE",headers:{"Content-Type":"application/json"}}).then(res=>res.json()).then(data=>{console.log(data);redirect('/users')});
+  fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/${user._id}`,{method:"DELETE",headers:{"Content-Type":"application/json"}}).then(res=>res.json()).then(data=>{console.log(data);redirect('/users')});
    
   } else {
     swal("Your User is safe!");

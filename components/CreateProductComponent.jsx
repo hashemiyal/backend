@@ -16,7 +16,7 @@ const CreateProductComponent = () => {
      e.preventDefault()
     let product={title:title,price:price,description:description,image_url:image,category:category,brand:brand,stock:stock};
     
-   let res=await fetch("http://localhost:3001/api/products",{method:"POST",headers:{ "Content-Type": "application/json",},body:JSON.stringify(product)});
+   let res=await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`,{method:"POST",headers:{ "Content-Type": "application/json",},body:JSON.stringify(product)});
     if(res.ok){
         Swal.fire({
             position: "top-end",

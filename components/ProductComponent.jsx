@@ -16,7 +16,7 @@ const ProductComponent = ({products}) => {
             confirmButtonText: "Yes, delete it!"
           }).then((result) => {
             if (result.isConfirmed) {
-              fetch(`http://localhost:3001/api/products/${id}`, {
+              fetch(`${process.env.NEXT_PUBLIC_API_URL}/products/${id}`, {
                 method: 'DELETE',
                 headers: {
                   'Content-Type': 'application/json',

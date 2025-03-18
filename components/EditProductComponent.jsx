@@ -8,7 +8,7 @@ const EditProductComponent = ({editableproduct}) => {
    let [product,setproduct]=useState(editableproduct);
    async function handleUpdate(e) {
       e.preventDefault();
-      let res=await fetch(`http://localhost:3001/api/products/${product._id}`,{method:"PUT",headers:{ "Content-Type": "application/json",},body:JSON.stringify(product)});
+      let res=await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products/${product._id}`,{method:"PUT",headers:{ "Content-Type": "application/json",},body:JSON.stringify(product)});
       if(res.ok){
         swal("Good job!", "Select Product updated!", "success");
        redirect('/products');

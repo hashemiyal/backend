@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 const User = async() => {
    let session=await getServerSession(authOptions)
    if(!session?.user.isAdmin){redirect('/')}
-   let res=await fetch("http://localhost:3001/api/users");
+   let res=await fetch("/api/users");
    let users=await res.json();
 
     return ( 

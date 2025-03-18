@@ -11,7 +11,7 @@ const Dashboard = async () => {
         <>
         <Sidebar/>
         <h1>Welcome to the Dashboard.<strong>{session?.user?.username} </strong><MdDashboard /></h1>
-        <Link href={"http://localhost:3000/"}>Home</Link>
+       
         </>
      );
 }

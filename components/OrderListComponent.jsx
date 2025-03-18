@@ -44,7 +44,7 @@ const OrderComponent = ({orders}) => {
 .then((willDelete) => {
   if (willDelete) {
 
-    fetch(`http://localhost:3001/api/orders/${order._id}`, {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/orders/${order._id}`, {
                     method: 'DELETE',
                     headers: {
                       'Content-Type': 'application/json',
