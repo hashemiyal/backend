@@ -11,7 +11,6 @@ import { LiaSignOutAltSolid } from "react-icons/lia";
 const Sidebar = () => {
 
   return (
-  
 <div className="sidebar">
    <span style={{direction:"rtl"}}><ImCross /> </span>
    <Link href="/dashboard" className="link">

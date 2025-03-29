@@ -7,7 +7,7 @@ const Orders = async() => {
     let session= await getServerSession(authOptions);
     if(!session?.user?.isAdmin){ redirect('/')}
 
-    let res=await fetch("http://localhost:3001/api/orders");
+    let res=await fetch(`${process.env.NEXT_PUBLIC_API_URL}/orders`);
     let orders= await res.json();
     return ( 
       <OrderComponent orders={orders} />

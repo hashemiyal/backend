@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 const UserList = ({users}) => {
    async function handlechange(value,id){
-    await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/${id}`,{method:"PUT",body:JSON.stringify({role:value}),headers:{"Content-Type":"application/json"}}).then(res=>res.json()).then(data=>{console.log(data)});
+    await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/${id}`,{method:"PUT",body:JSON.stringify({role:value}),headers:{"Content-Type":"application/json"}}).then(res=>res.json()).then(data=>{console.log(data);swal(data.message)});
   }
     return ( 
         <>
@@ -24,7 +24,7 @@ const UserList = ({users}) => {
             <th>E-mail</th>
           
         
-            <th>Status</th>
+            <th>Role</th>
         
             <th>Actions </th>
           </tr>

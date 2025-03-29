@@ -18,7 +18,7 @@ const ProfileComponent = ({session}) => {
         }
         else{
           seterror("");
-          redirect("/users/profile/confirm");
+          redirect("/users/profile/confirm?userid="+session?.user.id+`&newpass=${password}`);
         }
 
        

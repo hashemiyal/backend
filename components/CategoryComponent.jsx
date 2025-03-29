@@ -4,8 +4,8 @@ import { redirect } from "next/navigation";
 import { MdEdit } from "react-icons/md";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 
-const BrandComponent = () => {
-    let categogies=[{id:223,title:"category 1"},{id:224,title:"cateogyryt 2"},{id:225,title:"category  3"}]
+const BrandComponent = ({categories}) => {
+    
     function hadleDelete(id){
      
     }
@@ -14,7 +14,7 @@ const BrandComponent = () => {
        
         <h1>List of All Available Categories</h1>
         <hr />
-        <Link href="/brands/new">
+        <Link href="category/new">
           <button>Add New Category</button>
         </Link>
         <hr />
@@ -30,10 +30,10 @@ const BrandComponent = () => {
   
           <tbody>
             {
-              categogies.map((product,index)=>(
-                <tr key={product.id}>
+              categories.map((product,index)=>(
+                <tr key={product._id}>
                   <td>{index+1}</td>
-                  <td>{product.title}</td>
+                  <td>{product.name}</td>
                   <td >
             
                     <button className="button is-danger has-text-centered" onClick={hadleDelete(product._id)}><RiDeleteBin6Fill /></button>

@@ -1,8 +1,10 @@
 import BrandComponent from "../../components/BrandComponent";
-const Brand = () => {
+const Brand = async() => {
+    let res=await fetch(`${process.env.NEXT_PUBLIC_API_URL}/brands`);
+    let brands=await res.json();
     return ( 
         <>
-        <BrandComponent/>
+        <BrandComponent brands={brands}/>
         </>
      );
 }

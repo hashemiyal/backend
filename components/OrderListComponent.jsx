@@ -3,19 +3,24 @@ import { redirect } from "next/navigation";
 import swal from "sweetalert";
 const OrderComponent = ({orders}) => {
     return ( 
-        <>
-          <table>
-          <thead style={{textAlign:"center"}}>
+        <div>
+           <h1>List of All Available Orders</h1>
+                  <hr />
+                 
+               
+            
+          <table className="has-text-centered">
+          <thead>
             <tr>
-            <th>شماره</th>
-              <th>نام کاربر</th>
-              <th>ایمیل</th>
-              <th>کشور - شهر - کدپستی</th>
-              <th>جمع کل</th>
-              <th>وضعیت</th>
-              <th>تاریخ</th>
-              <th>محصولات</th>
-              <th>علمیات </th>
+            <th>No #</th>
+              <th>User</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>TotalPrice</th>
+              <th>Status</th>
+              <th>Date</th>
+              <th>Products</th>
+              <th>Actions </th>
             </tr>
           </thead>
   
@@ -64,7 +69,7 @@ const OrderComponent = ({orders}) => {
             }
           </tbody>
         </table>
-        </> 
+        </div> 
      );
 }
  

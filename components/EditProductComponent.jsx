@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { useState } from "react";
 import swal from 'sweetalert';
 import Link from "next/link";
-const EditProductComponent = ({editableproduct}) => {
+const EditProductComponent = ({editableproduct,brands,categories}) => {
    console.log(editableproduct);
    let [product,setproduct]=useState(editableproduct);
    async function handleUpdate(e) {
@@ -25,20 +25,17 @@ const EditProductComponent = ({editableproduct}) => {
             <input value={product.image_url}  type="text" name="image" placeholder="image url" onChange={(e)=>{setproduct({...product,image_url:e.target.value})}}/>
             <textarea value={product.description} name="description" placeholder="description" onChange={(e)=>{setproduct({...product,description:e.target.value})}}></textarea>
             <select value={product.category} name="category" onChange={(e)=>{setproduct({...product,category:e.target.value})}} >
-                <option value="لپتاپ" disabled>select Category</option>
-                <option value="laptop">laptop</option>
-                <option value="mobile">mobile</option>
-                <option value="tablet">tablet</option>
-                <option value="tv">tv</option>
-                <option value="other">other</option>
+            <option value="لپتاپ" disabled>select category</option>
+             {categories.map((category,index)=>{
+                return <option key={index} value={category.name}>{category.name}</option>
+             })}
+                
             </select>
             <select name="brand" value={product.brand} onChange={(e)=>{setproduct({...product,brand:e.target.value})}}>
-            <option value="لپتاپ" disabled>select Brand</option>
-                <option value="addidas">addidas</option>
-                <option value="nike">nike</option>
-                <option value="apple">apple</option>
-                <option value="samsung">samsung</option>
-                <option value="other">other</option>
+            <option value="لپتاپ" disabled>select Brand</option> 
+            {brands.map((brand,index)=>{
+                return <option key={index} value={brand.name}>{brand.name}</option>
+            })}
             </select>
             <input type="number" value={product.stock} name="stock" placeholder="Quantity in Stock" onChange={(e)=>{setproduct({...product,stock:e.target.value})}} />
             <button type="sumbit">Save new info</button>

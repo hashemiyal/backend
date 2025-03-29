@@ -10,7 +10,7 @@ const Dashboard = async () => {
     return ( 
         <>
         <Sidebar/>
-        <h1>Welcome to the Dashboard.<strong>{session?.user?.username} </strong><MdDashboard /></h1>
+        <h1>Welcome to the Dashboard.<Link href={'/users/profile'}><strong>{session?.user?.username} </strong></Link><MdDashboard /></h1>
        
         </>
      );

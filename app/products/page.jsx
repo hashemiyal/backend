@@ -5,8 +5,8 @@ import { redirect } from "next/navigation";
 const Products = async () => {
    let session= await getServerSession(authOptions);
    if (!session?.user?.isAdmin){ redirect('/')}
-   let res=await fetch("http://localhost:3001/api/products");
-   let products=await res.json();
+   let prres=await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`);
+   let products=await prres.json();
     return ( 
        <ProductComponent products={products}/>
      );

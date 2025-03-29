@@ -4,7 +4,7 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import Link from "next/link";
 
-const CreateProductComponent = () => {
+const CreateProductComponent = ({brands,categories}) => {
    let [title,settitle]=useState("");
    let [price,setprice]=useState("");
    let [image,setimage]=useState("");
@@ -41,27 +41,23 @@ const CreateProductComponent = () => {
       
         <h1>Add New Product</h1>
         <form onSubmit={handleSubmit}>
-            <input type="text" value={title} onChange={(e)=>settitle(e.target.value)} name="title" placeholder="title" />
-            <input type="number" value={price} onChange={(e)=>setprice(e.target.value)}  name="price" placeholder="price" />
-            <input  type="text" value={image} onChange={(e)=>setimage(e.target.value)} name="image" placeholder="image url" />
-            <textarea name="description" value={description} onChange={(e)=>setdescription(e.target.value)} placeholder="description"></textarea>
-            <select value={category} onChange={(e)=>setcategory(e.target.value)} name="category" >
-                <option value="لپتاپ" disabled>select Category</option>
-                <option value="laptop">laptop</option>
-                <option value="mobile">mobile</option>
-                <option value="tablet">tablet</option>
-                <option value="tv">tv</option>
-                <option value="other">other</option>
+            <input type="text" value={title} onChange={(e)=>settitle(e.target.value)} name="title" placeholder="title" required/>
+            <input type="number" value={price} onChange={(e)=>setprice(e.target.value)}  name="price" placeholder="price" required/>
+            <input  type="text" value={image} onChange={(e)=>setimage(e.target.value)} name="image" placeholder="image url" required/>
+            <textarea name="description" value={description} onChange={(e)=>setdescription(e.target.value)} placeholder="description" required></textarea>
+            <select defaultValue={"none"}  onChange={(e)=>setcategory(e.target.value)} name="category" required >
+                <option value="none" disabled >select Category</option>
+                {categories.map((category,index)=>{
+                    return <option key={index} value={category.name}>{category.name}</option>
+                })}
             </select>
-            <select name="brand" value={brand} onChange={(e)=>setbrand(e.target.value)}>
-            <option value="لپتاپ" disabled>select Brand</option>
-                <option value="addidas">addidas</option>
-                <option value="nike">nike</option>
-                <option value="apple">apple</option>
-                <option value="samsung">samsung</option>
-                <option value="other">other</option>
+            <select defaultValue={"none"} name="brand" onChange={(e)=>setbrand(e.target.value)} required>
+            <option value="none" disabled>select Brand</option>
+            {brands.map((brand,index)=>{
+                return <option key={index} value={brand.name}>{brand.name}</option>
+            })}
             </select>
-            <input type="number" value={stock} name="stock" placeholder="Quantity in Stock" onChange={(e)=>setstock(e.target.value)} />
+            <input type="number" value={stock} name="stock" placeholder="Quantity in Stock" onChange={(e)=>setstock(e.target.value)} required/>
             <button type="sumbit">Save product</button>
              <Link href={'/products'} style={{color:"#de313f",marginLeft:"5px"}}>Cencel</Link>
         </form>

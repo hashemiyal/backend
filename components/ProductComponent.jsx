@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { MdEdit } from "react-icons/md";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import Swal from "sweetalert2";
-const ProductComponent = ({products}) => {
+const ProductComponent = ({products,categories,brands}) => {
     const hadleDelete=(id)=>async()=>{
         Swal.fire({
             title: "Are you sure?",

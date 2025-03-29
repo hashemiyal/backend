@@ -9,7 +9,7 @@ body {
   .sidebar {
     width: 250px;
     height: 100vh;
-    background-color: #1e293b;
+    background-color: #1e2531;
     color: white;
     display: flex;
     flex-direction: column;
@@ -17,10 +17,17 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-y: auto;
    
     
   }
+
+.form-container {
+    max-width: 400px;
+    margin: auto;
+    margin-right: 400px;
+    margin-top: 100px;
+}
   
   
   .link {
@@ -58,6 +65,7 @@ body {
       width: 80px;
       padding: 10px;
       height: scroll;
+     
     }
   
     .link span {
@@ -125,7 +133,3 @@ body {
     border: 1px solid #ddd;
   }
 
-
-  tbody :hover{
-    background-color: #272727;
-  }
